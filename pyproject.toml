@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "dem"
+version = "0.1.0"
+description = ""
+authors = ["Jahor Laryn <mrojahor@gmail.com>"]
+license = "MIT"
+
+[tool.pyright]
+strict = ["strec"]
+ignore = ["tests"]
+venvPath = "."
+venv = ".venv"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aiogram = "^2.21"
+Pillow = "^9.1.1"
+black = "^22.6.0"
+isort = "^5.10.1"
+pre-commit = "^2.19.0"
+python-dotenv = "^0.20.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
