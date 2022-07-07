@@ -18,8 +18,5 @@ def transalate(locale: Locale, line: str):
         translation = "en"
 
     lang: dict = translations[translation]
-    if line in lang:
-        return lang[line]
 
-    # Fallback to English if no translation for given line exists
-    return translations["en"][line]
+    return lang.setdefault(line, translations["en"][line])

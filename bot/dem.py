@@ -1,5 +1,6 @@
-from aiogram import Bot, Dispatcher, executor, types, md
+from aiogram import Bot, Dispatcher, executor, md, types
 from babel.core import Locale
+
 from settings import API_TOKEN
 from static.lang import transalate
 
@@ -7,11 +8,6 @@ from static.lang import transalate
 class DemBot:
     bot = Bot(token=API_TOKEN)
     dp = Dispatcher(bot)
-
-    # @dp.message_handler()
-    # async def check_language(message: types.Message):
-    #     locale: Locale = message.from_user.locale
-    #     await message.reply(str(locale))
 
     @dp.message_handler(commands=["start", "help"])
     async def send_welcome(message: types.Message):
