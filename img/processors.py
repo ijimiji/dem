@@ -5,7 +5,7 @@ from PIL import Image, ImageDraw, ImageFont
 from static.fonts import arial, times
 
 
-def time_warp(path: str, factor: int = 15) -> None:
+def time_warp(path: str, factor: int = 20) -> str:
     with Image.open(path) as img:
         width, height = img.size
         new_img: Image.Image = Image.new("RGB", img.size)
@@ -30,11 +30,11 @@ def time_warp(path: str, factor: int = 15) -> None:
                 xy: tuple[int, int] = (i, j)
 
                 new_img.putpixel(xy, img.getpixel(uv))
+        new_img.save(path)
+        return path
 
-        new_img.save(f"new_{path}")
 
-
-def demotivate(path, title_text="Заглавие", bottom_text="Текст"):
+def demotivate(path, title_text="Заглавие", bottom_text="Текст") -> str:
     with Image.open(path) as img:
         width, height = img.size
 
@@ -97,4 +97,9 @@ def demotivate(path, title_text="Заглавие", bottom_text="Текст"):
             font=bottom_font,
         )
 
-        new_img.save(f"new_{path}")
+        new_img.save(path)
+        return path
+
+
+def identity_processor(path: str) -> str:
+    return path
